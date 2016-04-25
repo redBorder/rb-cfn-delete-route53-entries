@@ -1,0 +1,23 @@
+{
+  "name": "rb_cfn_delete_route53_entries",
+  "version": "1.0.0",
+  "description": "aws lambda function to delete route53 entries before destroy cloudformation stack and avoid deletion errors",
+  "main": "index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.redborder.lan/cloud-management/rb_cfn_delete_route53_entries.git"
+  },
+  "keywords": [
+    "lambda",
+    "aws",
+    "route53",
+    "cloudformation",
+    "stack",
+    "deletion"
+  ],
+  "author": "Alberto Rodríguez",
+  "license": "ISC"
+}
