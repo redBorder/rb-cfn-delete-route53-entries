@@ -19,5 +19,9 @@
     "deletion"
   ],
   "author": "Alberto Rodríguez",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "https": "^1.0.0",
+    "url": "^0.11.0"
+  }
 }
