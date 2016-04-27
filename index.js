@@ -11,7 +11,7 @@ var route53 = new aws.Route53();
 
 var deleteEntry = function(resourceRecord, callback) {
     //Generating query
-    if (resourceRecord.Type === 'A') {
+    if (resourceRecord.Type === 'A' && resourceRecord.AliasTarget === undefined) {
         var route53params = {
             HostedZoneId: resourceRecord.HostedZoneId,
             ChangeBatch: {
