@@ -52,7 +52,7 @@ var listEntries = function(HostedZone, callback) {
                 recordSet.HostedZoneId = HostedZone;
             });
             //Then send queries asyncronously
-            async.map(data.ResourceRecordSets, deleteEntry, function(err, results) {
+            async.mapSeries(data.ResourceRecordSets, deleteEntry, function(err, results) {
                 callback(err, data);
             });
         }
