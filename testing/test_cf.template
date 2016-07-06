@@ -1,0 +1,68 @@
+{
+  "Parameters" : {
+   "BucketOfLambdaFuncion" : {
+      "Description" : "Bucket where is the lambda function code",
+      "Type" : "String"
+    },
+    "PathOfLambdaFunction" : {
+      "Description" : "Path where is the lambda function code inside s3 bucket",
+      "Type" : "String"
+    }
+  },
+  "Resources" : {
+    "route53cleanLambdaRole": {
+			"Type": "AWS::IAM::Role",
+			"Properties": {
+				"AssumeRolePolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [{
+						"Effect": "Allow",
+						"Principal": {"Service": ["lambda.amazonaws.com"]},
+						"Action": ["sts:AssumeRole"]
+					}]
+				},
+				"Path": "/",
+				"Policies": [{
+					"PolicyName": "root",
+					"PolicyDocument": {
+						"Version": "2012-10-17",
+						"Statement": [{
+							"Effect": "Allow",
+							"Action": ["logs:CreateLogGroup","logs:CreateLogStream","logs:PutLogEvents"],
+							"Resource": "arn:aws:logs:*:*:*"
+						},
+							{
+								"Effect": "Allow",
+								"Action": [
+									"route53:ListResourceRecordSets",
+									"route53:ChangeResourceRecordSets"
+								],
+								"Resource": "*"
+							}]
+					}
+				}]
+			}
+		},
+		"route53cleanFunction" : {
+			"Type" : "AWS::Lambda::Function",
+			"Properties" : {
+				"Code": {
+					"S3Bucket": { "Ref" : "BucketOfLambdaFuncion" },
+					"S3Key": { "Fn::Join" : [ "", [ { "Ref" : "PathOfLambdaFunction" }, "/rb_cfn_delete_route53_entries.zip" ] ] }
+				},
+				"Handler": "index.handler",
+				"Runtime": "nodejs4.3",
+				"Timeout": "30",
+				"Role": { "Fn::GetAtt" : ["route53cleanLambdaRole", "Arn"] }
+			}
+		},
+		"route53clean": {
+			"Type": "Custom::Route53clean",
+			"Properties": {
+				"ServiceToken": { "Fn::GetAtt" : [ "route53cleanFunction", "Arn" ] },
+				"PublicHostedZone": { "Ref": "PublicHostedZone" },
+				"PrivateHostedZone": { "Ref" : "PrivateHostedZone" }
+			}
+		}
+  }
+}
