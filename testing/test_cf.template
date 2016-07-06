@@ -1,0 +1,278 @@
+{
+  "Parameters" : {
+   "BucketOfLambdaFuncion" : {
+      "Description" : "Bucket where is the lambda function code",
+      "Type" : "String"
+    },
+    "PathOfLambdaFunction" : {
+      "Description" : "Path where is the lambda function code inside s3 bucket",
+      "Type" : "String"
+    }
+  },
+  "Resources" : {
+    "FirstHostedZone" : {
+        "Type" : "AWS::Route53::HostedZone",
+        "Properties" : {
+            "Name" : "firstroute53clean.lambda.com"
+        }
+    },
+    "SecondHostedZone" : {
+        "Type" : "AWS::Route53::HostedZone",
+        "Properties" : {
+            "Name" : "secondroute53clean.lambda.com"
+        }
+    },
+    "FirstRecordSet1" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "FirstHostedZone" },
+            "Name" : "record1.firstroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "FirstRecordSet2" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "FirstHostedZone" },
+            "Name" : "record2.firstroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "FirstRecordSet3" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "FirstHostedZone" },
+            "Name" : "record3.firstroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "FirstRecordSet4" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "FirstHostedZone" },
+            "Name" : "record4.firstroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "FirstRecordSet5" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "FirstHostedZone" },
+            "Name" : "record5.firstroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "FirstRecordSet6" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "FirstHostedZone" },
+            "Name" : "record6.firstroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "FirstRecordSet7" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "FirstHostedZone" },
+            "Name" : "record7.firstroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "FirstRecordSet8" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "FirstHostedZone" },
+            "Name" : "record8.firstroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "FirstRecordSet9" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "FirstHostedZone" },
+            "Name" : "record9.firstroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "SecondRecordSet1" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "SecondHostedZone" },
+            "Name" : "record1.secondroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "SecondRecordSet2" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "SecondHostedZone" },
+            "Name" : "record2.secondroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "SecondRecordSet3" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "SecondHostedZone" },
+            "Name" : "record3.secondroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "SecondRecordSet4" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "SecondHostedZone" },
+            "Name" : "record4.secondroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "SecondRecordSet5" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "SecondHostedZone" },
+            "Name" : "record5.secondroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "SecondRecordSet6" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "SecondHostedZone" },
+            "Name" : "record6.secondroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "SecondRecordSet7" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "SecondHostedZone" },
+            "Name" : "record7.secondroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "SecondRecordSet8" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "SecondHostedZone" },
+            "Name" : "record8.secondroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "SecondRecordSet9" : {
+        "Type" : "AWS::Route53::RecordSet",
+        "Properties" : {
+            "HostedZoneId" : { "Ref" : "SecondHostedZone" },
+            "Name" : "record9.secondroute53clean.lambda.com",
+            "Type" : "A",
+            "ResourceRecords" : [ "8.8.8.8" ],
+            "TTL" : "300"
+        },
+        "DeletionPolicy" : "Retain"
+    },
+    "route53cleanLambdaRole": {
+			"Type": "AWS::IAM::Role",
+			"Properties": {
+				"AssumeRolePolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [{
+						"Effect": "Allow",
+						"Principal": {"Service": ["lambda.amazonaws.com"]},
+						"Action": ["sts:AssumeRole"]
+					}]
+				},
+				"Path": "/",
+				"Policies": [{
+					"PolicyName": "root",
+					"PolicyDocument": {
+						"Version": "2012-10-17",
+						"Statement": [{
+							"Effect": "Allow",
+							"Action": ["logs:CreateLogGroup","logs:CreateLogStream","logs:PutLogEvents"],
+							"Resource": "arn:aws:logs:*:*:*"
+						},
+							{
+								"Effect": "Allow",
+								"Action": [
+									"route53:ListResourceRecordSets",
+									"route53:ChangeResourceRecordSets"
+								],
+								"Resource": "*"
+							}]
+					}
+				}]
+			}
+		},
+		"route53cleanFunction" : {
+			"Type" : "AWS::Lambda::Function",
+			"Properties" : {
+				"Code": {
+					"S3Bucket": { "Ref" : "BucketOfLambdaFuncion" },
+					"S3Key": { "Fn::Join" : [ "", [ { "Ref" : "PathOfLambdaFunction" }, "/rb_cfn_delete_route53_entries.zip" ] ] }
+				},
+				"Handler": "index.handler",
+				"Runtime": "nodejs4.3",
+				"Timeout": "30",
+				"Role": { "Fn::GetAtt" : ["route53cleanLambdaRole", "Arn"] }
+			}
+		},
+		"route53clean": {
+			"Type": "Custom::Route53clean",
+			"Properties": {
+				"ServiceToken": { "Fn::GetAtt" : [ "route53cleanFunction", "Arn" ] },
+				"PublicHostedZone": { "Ref": "FirstHostedZone" },
+				"PrivateHostedZone": { "Ref" : "SecondHostedZone" }
+			}
+		}
+  }
+}
