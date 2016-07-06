@@ -9,6 +9,14 @@ var async = require('async');
 
 var route53 = new aws.Route53();
 
+var changeResourceRecordSets = function (route53params) {
+    return function (callback) {
+        route53.changeResourceRecordSets(route53params, function(err, data) {
+            callback(err, data);
+        });
+    };
+};
+
 var deleteEntry = function(resourceRecord, callback) {
     //Generating query
     if (resourceRecord.Type === 'A' && resourceRecord.AliasTarget === undefined) {
@@ -28,7 +36,7 @@ var deleteEntry = function(resourceRecord, callback) {
                 } ]
             }
         };
-        route53.changeResourceRecordSets(route53params, function(err, data) {
+        async.retry({times: 3, interval: 50}, changeResourceRecordSets(route53params), function(err, data) {
             callback(err, data);
         });
     } else {
